@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cosmic Comets: A Journey Through Near-Earth Orbits</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cinzel:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+    </head>
+    <body>
+        <nav class="topbar">
+            <div class="nav-container">
+                <div class="nav-item" data-section="timeline-section">Star Map</div>
+                <div class="nav-item" data-section="spiral-section">Spiral</div>
+            </div>
+        </nav>
+
+        <header id="header">
+            <h1>Cosmic Comets</h1>
+            <p>A Voyage Through Near-Earth Orbits</p>
+        </header>
+
+        <section id="timeline-section">
+            <div class="container">
+                <h2>Star Field Map of Comets</h2>
+                <p>
+                    This visualization presents near-Earth comets as glowing orbs in a cosmos. The orbs are scattered like stars in the night sky, creating a magical celestial scene.
+                </p>
+                <p class="design-elements">
+                    <strong>Design Elements:</strong>
+                    <ul>
+                        <li><strong>Marks:</strong> Circles (orbs) with radiating starburst lines</li>
+                        <li><strong>Channels:</strong>
+                            <ul>
+                                <li>Position (X): Perihelion distance (q) - how close the comet gets to the Sun</li>
+                                <li>Position (Y): Eccentricity (e) - how elliptical the comet’s orbit is</li>
+                                <li>Size: Minimum Orbit Intersection Distance (MOID) - smaller MOID (closer to Earth) creates larger orbs</li>
+                                <li>Opacity: MOID - closer comets appear brighter</li>
+                                <li>Color Gradient: Based on MOID values, creating visual separation between different comets</li>
+                            </ul>
+                        </li>
+                        <li><strong>Interactions:</strong>
+                            <ul>
+                                <li>Hover: Reveals comet name via tooltip</li>
+                                <li>Click: Highlights the selected comet and connects it to comets with similar perihelion years (within 5 years), displaying a detailed information card</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    <strong>Custom Visualization Category: Modded</strong><br>
+                    This visualization modifies a standard scatter plot by adding glowing orbs, radiating starburst lines, and interactive connections. It retains the core structure of a scatter plot, enhancing it with visual effects and interactions to highlight cometary relationships.
+                </p>
+                <div id="timeline-content">
+                    <svg id="timeline-visualization"></svg>
+                    <div id="info-card" class="info-card" style="display: none;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="spiral-section">
+            <div class="container">
+                <h2>The Spiral of Comets</h2>
+                <p>
+                    This visualization renders near-Earth comets as a swirling spiral galaxy, with each comet as a curved arc orbiting the Sun, revealing orbital patterns and relationships.
+                </p>
+                <p class="design-elements">
+                    <strong>Design Elements:</strong>
+                    <ul>
+                        <li><strong>Marks:</strong> Curved arcs following logarithmic spiral paths</li>
+                        <li><strong>Channels:</strong>
+                            <ul>
+                                <li>Radius: Perihelion distance (q) - distance from the center represents proximity to the Sun</li>
+                                <li>Arc Length: Orbital period (P) - longer arcs for comets with longer orbital periods</li>
+                                <li>Thickness: Minimum Orbit Intersection Distance (MOID) - thicker lines for comets that pass closer to Earth’s orbit</li>
+                                <li>Color: Eccentricity (e) - color groups comets by how elliptical their orbits are (blue for low, gold for medium, orange for high)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Interactions:</strong>
+                            <ul>
+                                <li>Hover: Highlights the arc and displays comet information</li>
+                                <li>Click: Transitions to an orbital animation showing the comet’s path around the Sun, with an information dashboard displaying key orbital parameters</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    <strong>Custom Visualization Category: Novel</strong><br>
+Rather than using standard circular orbits or scatter plots, it creates a unified, galaxy-like spiral that transforms temporal and spatial data into a cohesive visual structure. The design is inspired by artistic data visualizations like those created by Giorgia Lupi from this article https://giorgialupi.com/bulletin-of-the-atomic-scientists
+                </p>
+                <div id="spiral-content">
+                    <svg id="spiral-visualization"></svg>
+                    <div id="spiral-info-card" class="info-card" style="display: none;"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Created for #Homework-5 | Moksha Smruthi Morapakula | Data Source: Near Earth Comets Dataset</p>
+        </footer>
+
+        <canvas id="stars"></canvas>
+        <script src="mmorapak.js"></script>
+    </body>
+</html>

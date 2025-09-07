@@ -1,0 +1,373 @@
+header{
+  text-align: center;
+      padding: 100px 20px;
+  background: rgba(0, 0, 0, 0.7);
+  position: relative;
+  z-index: 1;
+    margin-top: 60px}
+  
+    .comet-orb{
+  cursor: pointer;
+  transition: filter 0.3s ease-out}
+  
+  .nav-container {
+  max-width: 1200px;
+    margin: 0 auto;
+  display: flex;
+      justify-content: center;
+  gap: 50px}
+  
+    .nav-item{
+  color: var(--color-text);
+    font-family: var(--font-heading);
+  font-size: 1.2em;
+      cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-transform: uppercase;
+    letter-spacing: 1px}
+  
+  .nav-item::after{content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-highlight);
+  transition: width 0.3s ease}
+  
+  .nav-item:hover,
+  .nav-item:focus {color: var(--color-highlight);
+    transform: translateY(-2px)}
+  
+  .nav-item:hover::after {width: 100%}
+  
+  body{
+    font-family: var(--font-body);
+  color: var(--color-text);
+  position: relative;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, var(--color-bg-dark) 0%, var(--color-bg-medium) 50%, var(--color-bg-light) 100%);
+    min-height: 100vh;
+  line-height: 1.6}
+  
+  #stars{position: fixed;
+  top: 0;
+    left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.9}
+  
+  :root {
+    --color-bg-dark: #000000;
+    --color-bg-medium: #1C2526;
+    --color-bg-light: #2C3E50;
+    --color-text: #E0E0E0;
+    --color-highlight: #FFD700;
+    --color-accent: #4682B4;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Lora', serif;
+}
+  
+  * {margin:0;
+  padding:0;
+  box-sizing: border-box}
+  
+  .topbar{position: fixed;
+    top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  padding: 15px 0}
+  
+  header h1{font-family: var(--font-heading);
+  font-size: clamp(3rem, 6vw, 5rem);
+    color: var(--color-highlight);
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.7), 0 0 60px rgba(255, 215, 0, 0.4);
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  animation: glow 3s ease-in-out infinite alternate}
+  
+  header p {font-family: var(--font-body);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: var(--color-text);
+  max-width: 800px;
+  margin: 0 auto;
+  font-style: italic;
+  opacity: 0.9}
+  
+  @keyframes glow {from {
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.7), 0 0 40px rgba(255, 215, 0, 0.4)}
+  to {
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 60px rgba(255, 215, 0, 0.6)}}
+  
+  section {padding: 40px 20px;
+  position: relative;
+  z-index: 1}
+  
+  .container {max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid rgba(70, 130, 180, 0.2);
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3)}
+  
+  h2{font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.5vw, 3rem);
+  color: var(--color-highlight);
+  text-shadow: 0 0 20px rgba(70, 130, 180, 0.5);
+  margin-bottom: 15px;
+  letter-spacing: 1.5px}
+  
+  p {font-size: 1.2em;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 15px;
+  color: var(--color-text)}
+  
+  .design-elements {text-align: left;
+  margin-left: 0;
+  padding-left: 0;
+  max-width: 800px;
+  margin: 0 auto 15px}
+  
+  ul {text-align: left;
+  margin: 15px auto;
+  max-width: 600px;
+  list-style: disc;
+  padding-left: 25px}
+  
+  ul li {margin-bottom: 0.5rem}
+  
+  svg {background: transparent;
+  display: block;
+  margin: 10px auto;
+  overflow: visible;
+  max-width: 100%;
+  height: auto}
+  
+  .comet-orb:hover {filter: brightness(1.2)}
+  
+  .comet-starburst {stroke-linecap: round;
+  filter: url(#lens-flare);
+  transition: opacity 0.3s ease}
+  
+  .comet-starburst:hover {opacity: 0.8}
+  
+  .connection-line {fill: none;
+  stroke: var(--color-highlight);
+  stroke-width: 2;
+  stroke-dasharray: 5, 5;
+  opacity: 0.8;
+  filter: url(#glow)}
+  
+  .highlighted-orb {fill: var(--color-highlight);
+  filter: url(#highlight-glow)}
+  
+  .arc {fill: none;
+  stroke-linecap: round;
+  filter: url(#glow);
+  stroke-opacity: 0.8;
+  transition: stroke-opacity 0.3s ease}
+  
+  .arc:hover {stroke: var(--color-accent);
+  stroke-opacity: 1;
+  cursor: pointer}
+  
+  .orbit-path {fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  stroke-dasharray: 5, 5;
+  filter: url(#glow)}
+  
+  .orbit-comet {fill: var(--color-highlight);
+  filter: url(#glow)}
+  
+  .asteroid,
+  .satellite {fill: rgba(255, 255, 255, 0.7);
+  filter: url(#glow)}
+  
+  .tooltip {position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  color: var(--color-text);
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1em;
+  pointer-events: none;
+  box-shadow: 0 0 20px rgba(70, 130, 180, 0.4);
+  border: 1px solid rgba(70, 130, 180, 0.3);
+  z-index: 100;
+  max-width: 250px}
+  
+  .info-card {background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(28, 37, 38, 0.85));
+  border: 1px solid var(--color-accent);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 500px;
+  margin: 10px auto;
+  text-align: left;
+  color: var(--color-text);
+  box-shadow: 0 15px 50px rgba(70, 130, 180, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: cardAppear 0.5s ease-out}
+  
+  .info-card::before {content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, var(--color-highlight), var(--color-accent))}
+  
+  .info-card h3 {font-family: var(--font-heading);
+  color: var(--color-highlight);
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5)}
+  
+  .info-card p {margin: 10px 0;
+  font-size: 1.15em;
+  line-height: 1.7}
+  
+  .info-card button,
+  #back-to-spiral {background: var(--color-accent);
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  margin-top: 20px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: block;
+  margin-left: auto;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px}
+  
+  .info-card button:hover,
+  #back-to-spiral:hover {background: var(--color-highlight);
+  transform: scale(1.05)}
+  
+  #spiral-info-card {background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(28, 37, 38, 0.85));
+  border: 1px solid var(--color-accent);
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 800px;
+  margin: -300px auto 5px;
+  text-align: center;
+  color: var(--color-text);
+  box-shadow: 0 15px 50px rgba(70, 130, 180, 0.3);
+  position: relative;
+  animation: cardAppear 0.5s ease-out}
+  
+  #spiral-info-card::before {content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, var(--color-highlight), var(--color-accent))}
+  
+  #spiral-info-card .dashboard-title {font-family: var(--font-heading);
+  color: var(--color-highlight);
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5)}
+  
+  #spiral-info-card .dashboard-container {display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px}
+  
+  #spiral-info-card .dashboard-card {background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(70, 130, 180, 0.3);
+  border-radius: 10px;
+  padding: 15px;
+  width: 180px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease}
+  
+  #spiral-info-card .dashboard-card:hover {transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(70, 130, 180, 0.5)}
+  
+  #spiral-info-card .dashboard-card h4 {font-family: var(--font-heading);
+  color: var(--color-accent);
+  font-size: 1.2em;
+  margin-bottom: 8px}
+  
+  #spiral-info-card .dashboard-card p {font-size: 1em;
+  margin: 5px 0;
+  color: var(--color-text)}
+  
+  #spiral-info-card .dashboard-card .description {font-size: 0.9em;
+  color: rgba(224, 224, 224, 0.7);
+  font-style: italic}
+  
+  @keyframes cardAppear {from {
+  opacity: 0;
+  transform: translateY(20px)}
+  to {
+  opacity: 1;
+  transform: translateY(0)}}
+  
+  footer {text-align: center;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.7);
+  position: relative;
+  z-index: 1;
+  font-size: 1em;
+  color: var(--color-text);
+  border-top: 2px solid rgba(70, 130, 180, 0.2)}
+  @keyframes fadeIn {from {
+  opacity: 0;
+  transform: translateY(20px)}
+  to {
+  opacity: 1;
+  transform: translateY(0)}}
+  
+  .container {animation: fadeIn 0.8s ease-out}
+  .loading {display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px}
+  
+  .loading::after {content: "";
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(70, 130, 180, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--color-accent);
+  animation: spin 1s infinite linear}
+  
+  @keyframes spin {to {
+  transform: rotate(360deg)}}
+  
+  @media (max-width: 900px) {
+  .container {padding: 30px 15px}
+  #timeline-visualization,
+  #spiral-visualization {height: 500px !important}
+  #spiral-info-card .dashboard-card {width: 150px;
+  padding: 10px}}
+  
+  @media (max-width: 768px) {
+  .nav-container {gap: 20px}
+  .nav-item {font-size: 1em}
+  h2 {font-size: 2em}
+  p {font-size: 1em}
+  .info-card {max-width: 90%;
+  padding: 20px}
+  #timeline-visualization,
+  #spiral-visualization {height: 400px !important}
+  #spiral-info-card .dashboard-container {flex-direction: column;
+  align-items: center}
+  #spiral-info-card .dashboard-card {width: 80%;
+  max-width: 300px}}
